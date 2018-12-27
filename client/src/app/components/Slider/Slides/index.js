@@ -6,7 +6,9 @@ const slides = (props) => {
   const containerStyles = {
     transform: `translateX(${props.translateValue}px)`,
     transition: 'transform ease-out 0.45s',
-    width: (props.slidesWidth * props.slides.length)
+    width: (props.slidesWidth * props.slides.length),
+    'overflowX': 'hidden',
+    position: 'relative'
   }
 
   return(

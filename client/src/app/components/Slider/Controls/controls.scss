@@ -3,6 +3,8 @@ $arrow-hover-opacity: 1;
 
 .controls {
   text-align: center;
+  position: absolute;
+  width: 100%;
 
   .arrow {
     display: block;
@@ -71,4 +73,5 @@ $arrow-hover-opacity: 1;
 
   .right-arrow-appearance-enter-done { right: 30px; }
   .right-arrow-appearance-exit-done  { right: -100px; }
+
 }
