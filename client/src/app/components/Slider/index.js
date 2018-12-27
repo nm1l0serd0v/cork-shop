@@ -46,15 +46,17 @@ class Slider extends React.Component {
     window.addEventListener("resize", this.updateClientWidth.bind(this))
 
     this.setState({
-      twistIntervalId: setInterval(this.twistSlider.bind(this), 5000)
+      twistIntervalId: setInterval(this.nextSlideHandler.bind(this), 5000)
     })
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateClientWidth.bind(this))
+
     clearInterval(this.state.twistIntervalId)
   }
 
+  // resize
   updateClientWidth() {
     const width = document.querySelector('body').clientWidth
 
@@ -104,11 +106,7 @@ class Slider extends React.Component {
 
   setIntervalForTwist() {
     clearInterval(this.state.twistIntervalId)
-    return setInterval(this.twistSlider.bind(this), 5000)
-  }
-
-  twistSlider() {
-    this.nextSlideHandler()
+    return setInterval(this.nextSlideHandler.bind(this), 5000)
   }
 
   render() {
