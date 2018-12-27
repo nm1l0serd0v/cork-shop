@@ -9,27 +9,27 @@ const navigation = (props) => {
 
         <NavigationItem 
           path={'/'}
-          pathName='home'
+          text='home'
         />
 
         <NavigationItem 
           path={'/'}
-          pathName='shop'
+          text='shop'
         />
 
         <NavigationItem 
           path={'/'}
-          pathName='gallery'
+          text='gallery'
         />
 
         <NavigationItem 
           path={'/'}
-          pathName='faq'
+          text='faq'
         />
 
         <NavigationItem 
           path={'/'}
-          pathName='contacts'
+          text='contacts'
         />
       </ul>
     </nav>
