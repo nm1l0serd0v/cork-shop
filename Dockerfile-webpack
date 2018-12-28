@@ -1,0 +1,9 @@
+FROM node:11.1.0
+
+COPY ./client/package.json /store/client/
+
+WORKDIR /store/client
+
+EXPOSE 3000
+
+COPY . /store/client/

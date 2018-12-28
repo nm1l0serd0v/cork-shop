@@ -1,0 +1,59 @@
+version: '3'
+volumes:
+  database_data:
+    driver: local
+  bundle_cache:
+    driver: local
+  node_modules_cache:
+    driver: local
+  redis:
+    driver: local
+
+services:
+  db:
+    image: postgres:10.6
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    logging:
+      driver: none
+
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis:/data
+
+  rails:
+    build: .
+    image: rails:latest
+    entrypoint: ['/store/docker-rails-entrypoint.dev.sh']
+    command: bundle exec rails s -p 4000 -b 0.0.0.0
+    volumes:
+      - bundle_cache:/usr/local/bundle
+      - node_modules_cache:/store/node_modules
+      - .:/store:cached
+    ports:
+      - '4000:4000'
+    env_file:
+      - '.env.local'
+    depends_on:
+      - db
+
+  webpack:
+    build:
+      context: .
+      dockerfile: Dockerfile-webpack
+    image: webpack:latest
+    entrypoint: ['/store/docker-webpack-entrypoint.dev.sh']
+    command: yarn start
+    volumes:
+      - bundle_cache:/usr/local/bundle
+      - node_modules_cache:/store/client/node_modules
+      - .:/store:cached
+    ports:
+      - '3000:3000'
+    env_file:
+      - '.env.local'
+    environment:
+      - WEBPACK_DEV_SERVER_HOST=0.0.0.0
