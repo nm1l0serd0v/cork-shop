@@ -28,6 +28,8 @@ services:
     build: .
     image: rails:latest
     entrypoint: ['/store/docker-rails-entrypoint.dev.sh']
+    tty: true
+    stdin_open: true
     command: bundle exec rails s -p 4000 -b 0.0.0.0
     volumes:
       - bundle_cache:/usr/local/bundle

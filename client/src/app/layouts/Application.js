@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Header from '../components/shared/header'
 import Footer from '../components/shared/footer'
 import Slider from '../components/Slider'
+import ProductsSummary from '../components/ProductsSummary'
 
 export default class Application extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class Application extends Component {
         <div className="page-wrapper">
           <Header />
           <Slider />
+          <ProductsSummary />
           <Footer />
         </div>
 
