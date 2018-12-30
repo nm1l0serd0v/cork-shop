@@ -1,0 +1,21 @@
+.tab-pane {
+  transform: scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+  backface-visibility: hidden;
+  transition: all 150ms ease-in-out;
+}
+
+.tab-pane.active{
+  visibility: visible;
+}
+
+.tab-pane.tab-transition-exit-active {
+  display: none;
+  transform: scale(0.9)!important;
+}
+
+.tab-pane.tab-transition-enter-done {
+  opacity: 1!important;
+  transform: scale(1)!important;
+}

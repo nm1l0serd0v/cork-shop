@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libc6-dev \
   make \
   pkg-config \
+  imagemagick \
   && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i -e 's/# ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen && \
@@ -29,7 +30,6 @@ WORKDIR /store
 COPY Gemfile* /store/
 
 RUN gem install bundler
-RUN gem install foreman
 RUN bundle install --jobs=20 --retry=5 --without test
 
 EXPOSE 3000 4000
@@ -38,7 +38,7 @@ COPY . /store
 
 ARG RAILS_ENV
 ARG RAILS_MASTER_KEY
-RUN bundle exec rake DATABASE_URL=postgresql:mock
+# RUN bundle exec rake DATABASE_URL=postgresql:mock
 # RUN bundle exec rake DATABASE_URL=postgresql:mock assets:precompile
 
 ENTRYPOINT ["/store/docker-rails-entrypoint.prod.sh"]

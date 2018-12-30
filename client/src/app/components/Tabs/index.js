@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { TransitionGroup } from 'react-transition-group'
+
 import Tab from './Tab'
+import Content from './Content'
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -9,7 +12,8 @@ class Tabs extends React.Component {
 
     this.state = {
       currentIndex: 0,
-      collection: props.collection
+      headers: props.headers,
+      contents: props.contents
     }
 
     this.onClickHandler = this.onClickHandler.bind(this)
@@ -25,7 +29,7 @@ class Tabs extends React.Component {
     return(
       <div className="col-sm-12">
         <ul className="nav-tabs text-center" role="tablist">
-          {this.state.collection.map((tab, i) => (
+          {this.state.headers.map((tab, i) => (
             <Tab 
               key={i}
               index={i}
@@ -35,15 +39,29 @@ class Tabs extends React.Component {
           ))}
         </ul>
 
-        <div className="tabs-content">
+        <div className="tab-content">
+          <TransitionGroup>
+            {this.state.contents.map((content, i) => {
+              return(
+                <Content key={i} active={this.state.currentIndex === i}>
+                  { this.state.contents[this.state.currentIndex] }
+                </Content>
+              )
+            })}
+          </TransitionGroup>
         </div>
       </div>
     )
   }
 }
 
+Tabs.defaultProps = {
+  contents: []
+}
+
 Tabs.propTypes = {
-  collection: PropTypes.array.isRequired
+  headers: PropTypes.array.isRequired,
+  contents: PropTypes.array
 }
 
 export default Tabs

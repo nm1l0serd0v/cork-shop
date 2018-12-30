@@ -8,12 +8,19 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'shopify_api'
+
+gem 'money'
+
+gem 'carrierwave'
+gem 'factory_bot'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rails-controller-testing' # If you are using Rails 5.x
   gem 'pry'
 end
 
