@@ -19,7 +19,9 @@ const products = (props) => {
       {slisedProducts.map((batch, i) => (
         <div key={i} className="row space-top-half">
           {batch.map((product, i) => (
-            <Product key={i} {...product} />
+            <div className="col-lg-3 col-sm-6">
+              <Product key={i} {...product} />
+            </div>
           )) }
         </div>
       ))}

@@ -27,35 +27,33 @@ const product = (props) => {
   )
 
   return(
-    <div className="col-lg-3 col-sm-6">
-      <div className="shop-item">
-        <div className="shop-thumbnail">
-          { props.discount ? discountLabel : null }
-          { props.rating !== undefined ? rating : null }
-          { props.labels.length !== 0 ? labels : null }
+    <div className="shop-item">
+      <div className="shop-thumbnail">
+        { props.discount ? discountLabel : null }
+        { props.rating !== undefined ? rating : null }
+        { props.labels.length !== 0 ? labels : null }
 
-          <a href="shop-single.html" className="item-link"> </a>
+        <a href="shop-single.html" className="item-link"> </a>
 
-          <img src={props.imageUrl} alt="Shop item"/>
-          <div className="shop-item-tools">
-            <a href="#" className="add-to-whishlist" data-toggle="tooltip" data-placement="top" title="Wishlist">
-              <i className="material-icons favorite_border"></i>
-            </a>
-            <a href="#" className="add-to-cart">
-              <em>Add to Cart</em>
-              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
-                <path strokeDasharray="19.79 19.79" strokeDashoffset="19.79" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
-              </svg>
-            </a>
-          </div>
+        <img src={props.imageUrl} alt="Shop item"/>
+        <div className="shop-item-tools">
+          <a href="#" className="add-to-whishlist" data-toggle="tooltip" data-placement="top" title="Wishlist">
+            <i className="material-icons favorite_border"></i>
+          </a>
+          <a href="#" className="add-to-cart">
+            <em>Add to Cart</em>
+            <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
+              <path strokeDasharray="19.79 19.79" strokeDashoffset="19.79" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+            </svg>
+          </a>
         </div>
-        <div className="shop-item-details">
-          <h3 className="shop-item-title" style={{width: '100%'}}>
-            <a href="shop-single.html">{props.name}</a>
-          </h3>
+      </div>
+      <div className="shop-item-details">
+        <h3 className="shop-item-title" style={{width: '100%'}}>
+          <a href="shop-single.html">{props.name}</a>
+        </h3>
 
-          {price.discount ? priceWithDiscount : price}
-        </div>
+        {price.discount ? priceWithDiscount : price}
       </div>
     </div>
   )

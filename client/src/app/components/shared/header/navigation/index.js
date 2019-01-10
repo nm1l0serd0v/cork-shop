@@ -13,7 +13,7 @@ const navigation = (props) => {
         />
 
         <NavigationItem 
-          path={'/'}
+          path={'/products'}
           text='shop'
         />
 

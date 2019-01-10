@@ -4,18 +4,17 @@
   visibility: hidden;
   backface-visibility: hidden;
   transition: all 150ms ease-in-out;
-}
-
-.tab-pane.active{
-  visibility: visible;
-}
-
-.tab-pane.tab-transition-exit-active {
   display: none;
-  transform: scale(0.9)!important;
+}
+
+.tab-pane.fade.scale.active{
+  visibility: visible;
+  display: block;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .tab-pane.tab-transition-enter-done {
-  opacity: 1!important;
-  transform: scale(1)!important;
+  opacity: 1;
+  transform: scale(1);
 }

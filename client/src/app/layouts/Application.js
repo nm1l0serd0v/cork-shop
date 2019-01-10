@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import Header from '../components/shared/header'
 import Footer from '../components/shared/footer'
-import Slider from '../components/Slider'
-import ProductsSummary from '../components/ProductsSummary'
 
-export default class Application extends Component {
+import Home from '../pages/Home'
+
+export default class Application extends React.Component {
   render() {
     return(
       <React.Fragment>
@@ -17,8 +17,7 @@ export default class Application extends Component {
 
         <div className="page-wrapper">
           <Header />
-          <Slider />
-          <ProductsSummary />
+            {this.props.children}
           <Footer />
         </div>
 

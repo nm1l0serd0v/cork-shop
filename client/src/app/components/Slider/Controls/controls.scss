@@ -6,12 +6,21 @@ $arrow-hover-opacity: 1;
   position: absolute;
   width: 100%;
 
+  @media screen and (max-width: 750px) { 
+    .arrow { top: -1000%; }
+  }
+
+  @media screen and (min-width: 751px) {
+    .arrow { 
+      top: -1700%
+    }
+  }
+
   .arrow {
     display: block;
-    position: fixed;
+    position: absolute;
     width: 80px;
     height: 80px;
-    top: 40%;
     margin-top: -20px;
     line-height: 80px;
     font-size: 24px;
@@ -21,15 +30,6 @@ $arrow-hover-opacity: 1;
     opacity: $arrow-default-opacity;
 
     transition: opacity 0.3s ease-out;
-
-    // -webkit-backface-visibility: hidden;
-    // -moz-backface-visibility: hidden;
-    // backface-visibility: hidden;
-
-    // -webkit-user-select: none;
-    // -moz-user-select: none;
-    // -ms-user-select: none;
-    // user-select: none;
 
     &:hover {
       opacity: 1;

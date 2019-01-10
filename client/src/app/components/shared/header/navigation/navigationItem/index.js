@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { NavLink } from 'react-router-dom'
+
 const navigationItem = (props) => {
   // TODO: detect from path
   const isActive = false;
@@ -20,8 +22,10 @@ const navigationItem = (props) => {
 
   return(
     <li className={[childrenClass, currentMenu].join(' ')}>
-      <a href={props.path}>{props.text}</a>
-      { hasChildren ? childrenList : null }
+      <NavLink to={props.path} >
+        { props.text }
+        { hasChildren ? childrenList : null }
+      </NavLink>
     </li>
   )
 };
