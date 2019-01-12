@@ -8,4 +8,6 @@ EXPOSE 3000
 
 COPY . /store/client/
 
+ENTRYPOINT ["/store/operations/docker-entrypoints/webpack.dev.sh"]
+
 RUN yarn install

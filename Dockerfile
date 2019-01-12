@@ -41,6 +41,6 @@ ARG RAILS_MASTER_KEY
 # RUN bundle exec rake DATABASE_URL=postgresql:mock
 # RUN bundle exec rake DATABASE_URL=postgresql:mock assets:precompile
 
-ENTRYPOINT ["/store/docker-rails-entrypoint.prod.sh"]
+ENTRYPOINT ["/store/operations/docker-entrypoints/rails.prod.sh"]
 
 CMD bundle exec rails s -p 3000 -b 0.0.0.0

@@ -3,6 +3,7 @@ set -e
 
 # Check if package.json.tmp exists
 if [ ! -f ./package.json.tmp ]; then
+  yarn install
   touch ./package.json.tmp && echo "Successfully created /tmp/package.json.tmp"
 fi
 

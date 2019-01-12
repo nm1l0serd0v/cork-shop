@@ -24,10 +24,10 @@ services:
     volumes:
       - redis:/data
 
-  rails:
+  web:
     build: .
     image: rails:latest
-    entrypoint: ['/store/docker-rails-entrypoint.dev.sh']
+    entrypoint: ['/store/operations/docker-entrypoints/rails.dev.sh']
     tty: true
     stdin_open: true
     command: bundle exec rails s -p 4000 -b 0.0.0.0
@@ -47,7 +47,7 @@ services:
       context: .
       dockerfile: Dockerfile-webpack
     image: webpack:latest
-    entrypoint: ['/store/docker-webpack-entrypoint.dev.sh']
+    entrypoint: ['/store/operations/docker-entrypoints/webpack.dev.sh']
     command: yarn start
     volumes:
       - bundle_cache:/usr/local/bundle
@@ -59,3 +59,5 @@ services:
       - '.env.local'
     environment:
       - WEBPACK_DEV_SERVER_HOST=0.0.0.0
+    depends_on:
+      - web
