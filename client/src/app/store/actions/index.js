@@ -1,3 +1,0 @@
-export { 
-  setLanguage 
-} from './language'
