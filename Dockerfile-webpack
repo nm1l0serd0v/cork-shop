@@ -7,3 +7,5 @@ WORKDIR /store/client
 EXPOSE 3000
 
 COPY . /store/client/
+
+RUN yarn install
