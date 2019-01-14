@@ -1,3 +1,4 @@
 [submodule "client"]
 	path = client
 	url = git@github.com:nm1l0serd0v/cork-shop-front-end.git
+  branch = master
