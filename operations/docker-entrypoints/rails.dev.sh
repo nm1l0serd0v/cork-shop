@@ -5,12 +5,13 @@ if [ -f /store/tmp/pids/server.pid ]; then
 fi
 
 # Create db if no exists
-bundle exec rake db:exists
-if [ $? -eq 0 ]; then
-  bundle exec rake db:migrate
-else
-  bundle exec rake db:create db:migrate db:seed
-fi
+# bundle exec rake db:exists
+# if [ $? -eq 0 ]; then
+#   bundle exec rake db:create VERBOSE=false
+#   bundle exec rake db:migrate
+# else
+  # bundle exec rake db:create db:migrate db:seed
+# fi
 
 
 if [ $? -eq 0 ]; then
