@@ -9,6 +9,12 @@ gem 'puma', '~> 3.11'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'sass-rails'
+gem 'coffee-rails'
+
+
+gem 'spree_backend', '~> 3.7.0.rc1'
+gem 'devise', '~> 4.5.0'
 
 group :development, :test do
   gem 'pry'
