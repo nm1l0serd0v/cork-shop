@@ -8,6 +8,17 @@ Bundler.require(*Rails.groups)
 
 module CorkShop
   class Application < Rails::Application
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:3000', '127.0.0.1:3000'
+        resource '*', headers: :any, methods: [:get, :post, :options]
+      end
+			# allow do
+        # origins '*'
+        # resource '*', :headers => :any, :methods => [:get, :post, :patch, :options]
+      # end
+    end
+
 
     config.i18n.default_locale = :ru
 

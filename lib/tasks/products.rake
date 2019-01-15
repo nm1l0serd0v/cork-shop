@@ -9,9 +9,8 @@ namespace :products do
       product = Spree::Product.new(
         name: product_data[:basic][:title].strip,
         description: product_data[:basic][:description],
-        price: product_data[:basic][:price].to_f
+        price: product_data[:basic][:price].to_f,
         available_on: Time.zone.now
-
       )
 
       product.shipping_category = Spree::ShippingCategory.last
