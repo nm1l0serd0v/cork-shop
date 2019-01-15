@@ -15,6 +15,7 @@ gem 'coffee-rails'
 
 gem 'spree_backend', '~> 3.7.0.rc1'
 gem 'devise', '~> 4.5.0'
+gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
 
 group :development, :test do
   gem 'pry'

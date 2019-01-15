@@ -15,8 +15,20 @@ Spree.config do |config|
   # config.track_inventory_levels = false
 end
 
+require 'carmen'
+Carmen.i18n_backend.locale = :ru
+
+Spree::Api::Config[:requires_authentication] = false
+
 Spree.user_class = "User"
 
 Rails.application.config.to_prepare do
   require_dependency 'spree/authentication_helpers'
 end
+
+# Deface::Override.new(
+#   virtual_path: 'spree/admin/shared/_order_summary',    
+#   name:         'admin_order_custom_details',
+#   insert_after: 'header#order_tab_summary > dl.additional-info',
+#   partial:      'spree/admin/shared/admin_order_custom_details'
+# )
